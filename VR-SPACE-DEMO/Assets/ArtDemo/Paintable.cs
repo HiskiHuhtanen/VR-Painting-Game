@@ -13,16 +13,19 @@ public class Paintable : MonoBehaviour
         renderer.material.mainTexture = texture;
     }
 
+    //https://docs.unity3d.com/ScriptReference/RaycastHit.html
+    //raycast antaa uv texture cordin johon piirretään
     public void Paint(Vector2 uv, Color color, float size)
     {
-        int cx = (int)(uv.x * textureSize);
-        int cy = (int)(uv.y * textureSize);
-        int r = Mathf.RoundToInt(size * textureSize);
-        for (int x = -r; x <= r; x++)
+        int cx = (int)(uv.x * textureSize); //skaalaus
+        int cy = (int)(uv.y * textureSize); //skaalaus
+        int brush_diameter = Mathf.RoundToInt(size * textureSize);
+        //piirretään ympyrä, nii katsotaan koordinaatin ympäri!
+        for (int x = -brush_diameter; x <= brush_diameter; x++)
         {
-            for (int y = -r; y <= r; y++)
+            for (int y = -brush_diameter; y <= brush_diameter; y++)
             {
-                if (x * x + y * y > r * r) continue;
+                if (x * x + y * y > brush_diameter * brush_diameter) continue; //ilman tätä tulee neliö, siistii jos haluu tehä pixel art
                 int px = cx + x;
                 int py = cy + y;
                 if (px < 0 || px >= textureSize || py < 0 || py >= textureSize)

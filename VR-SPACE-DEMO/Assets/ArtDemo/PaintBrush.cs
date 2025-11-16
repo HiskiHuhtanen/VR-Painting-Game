@@ -7,12 +7,6 @@ public class PaintBrush : MonoBehaviour
     public float brushSize = 0.05f;
     public Color currentColor = Color.red;
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Physics.Raycast(BrushTip.position, BrushTip.forward, out RaycastHit hit, rayDistance))
@@ -24,5 +18,10 @@ public class PaintBrush : MonoBehaviour
                 paintable.Paint(uv, currentColor, brushSize);
             }
         }
+    }
+
+    public void SetColor(Color newColor)
+    {
+        currentColor = newColor;
     }
 }

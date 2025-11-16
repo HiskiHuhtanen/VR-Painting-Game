@@ -140,6 +140,177 @@ MonoBehaviour:
   rayDistance: 0.05
   brushSize: 0.01
   currentColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &6387424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AttachTransform: {fileID: 0}
+  m_SecondaryAttachTransform: {fileID: 0}
+  m_UseDynamicAttach: 1
+  m_MatchAttachPosition: 1
+  m_MatchAttachRotation: 1
+  m_SnapToColliderVolume: 1
+  m_ReinitializeDynamicAttachEverySingleGrab: 1
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 2
+  m_VelocityDamping: 1
+  m_VelocityScale: 1
+  m_AngularVelocityDamping: 1
+  m_AngularVelocityScale: 1
+  m_TrackPosition: 1
+  m_SmoothPosition: 0
+  m_SmoothPositionAmount: 8
+  m_TightenPosition: 0.1
+  m_TrackRotation: 1
+  m_SmoothRotation: 0
+  m_SmoothRotationAmount: 8
+  m_TightenRotation: 0.1
+  m_TrackScale: 1
+  m_SmoothScale: 0
+  m_SmoothScaleAmount: 8
+  m_TightenScale: 0.1
+  m_ThrowOnDetach: 1
+  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ThrowVelocityScale: 1.5
+  m_ThrowAngularVelocityScale: 1
+  m_ForceGravityOnDetach: 0
+  m_RetainTransformParent: 1
+  m_StartingSingleGrabTransformers: []
+  m_StartingMultipleGrabTransformers: []
+  m_AddDefaultGrabTransformers: 1
+  m_FarAttachMode: 0
+--- !u!54 &6387425
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387419}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!64 &6387426
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6317129478236940503, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
 --- !u!1 &267505890
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +320,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 267505891}
-  - component: {fileID: 267505892}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -173,33 +343,6 @@ Transform:
   - {fileID: 843051126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &267505892
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267505890}
-  serializedVersion: 4
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &307006086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -448,12 +591,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactModeOverride: 2
-  twistMultiplierOverride: 0
-  dwellTimerOverride: 0
+  twistMultiplierOverride: 1.5
+  dwellTimerOverride: 6
   outline: {fileID: 2100000, guid: 5b41be09dbc0bb745ab358e04391bb65, type: 2}
   defaultMat: []
   color: {fileID: 2100000, guid: 55179c8e106785646a7f62b157bac4c2, type: 2}
   brushMeshRenderer: {fileID: 618705684}
+  paintBrush: {fileID: 6387420}
 --- !u!4 &497236231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670256625, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -492,12 +636,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactModeOverride: 2
-  twistMultiplierOverride: 0
-  dwellTimerOverride: 0
+  twistMultiplierOverride: 1.5
+  dwellTimerOverride: 6
   outline: {fileID: 2100000, guid: 5b41be09dbc0bb745ab358e04391bb65, type: 2}
   defaultMat: []
   color: {fileID: 2100000, guid: 342cf0ecb59ff5f4e9df249e3f732232, type: 2}
   brushMeshRenderer: {fileID: 618705684}
+  paintBrush: {fileID: 6387420}
 --- !u!65 &584108150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -601,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021389636295172686, guid: cbedd542f0f5eec47aa08311f42b5009, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2761659615475250749, guid: cbedd542f0f5eec47aa08311f42b5009, type: 3}
       propertyPath: m_LocalPosition.x
@@ -609,11 +754,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2761659615475250749, guid: cbedd542f0f5eec47aa08311f42b5009, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.477
       objectReference: {fileID: 0}
     - target: {fileID: 2761659615475250749, guid: cbedd542f0f5eec47aa08311f42b5009, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.752054
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2761659615475250749, guid: cbedd542f0f5eec47aa08311f42b5009, type: 3}
       propertyPath: m_LocalRotation.w
@@ -662,19 +807,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.24187
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -682,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.447
+      value: 0.594
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -734,6 +879,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6387420}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6387425}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6387424}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6387426}
   m_SourcePrefab: {fileID: 100100000, guid: 34ef223c1e21ab144a67ba97c6e026cc, type: 3}
 --- !u!23 &618705684 stripped
 MeshRenderer:
@@ -858,7 +1012,7 @@ MonoBehaviour:
   maxInteractDistance: 30
   interactLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   dwellCircle: {fileID: 919132149155446097, guid: 85263b774d52bfc45b84cf0dbe8dea7e, type: 3}
   twistCrosshair: {fileID: 1298010292}
   reticle: {fileID: 1130451537}
@@ -2032,12 +2186,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactModeOverride: 2
-  twistMultiplierOverride: 0
-  dwellTimerOverride: 0
+  twistMultiplierOverride: 1.5
+  dwellTimerOverride: 6
   outline: {fileID: 2100000, guid: 5b41be09dbc0bb745ab358e04391bb65, type: 2}
   defaultMat: []
   color: {fileID: 2100000, guid: 7f64011f15f88ca4f8145ae184f1c24b, type: 2}
   brushMeshRenderer: {fileID: 618705684}
+  paintBrush: {fileID: 6387420}
 --- !u!65 &2031811822
 BoxCollider:
   m_ObjectHideFlags: 0

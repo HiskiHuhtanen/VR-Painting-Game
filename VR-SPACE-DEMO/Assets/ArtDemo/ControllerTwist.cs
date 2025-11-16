@@ -71,9 +71,13 @@ public class ControllerTwist : MonoBehaviour
             twistCrosshair.transform.position = uiPos + Vector3.up * 0.05f;
             twistCrosshair.transform.LookAt(Camera.main.transform);
             twistCrosshair.transform.Rotate(0, 180, 0);
+
+            reticle.transform.position = uiPos + Vector3.up * 0.02f;
+            reticle.transform.LookAt(Camera.main.transform);
+            reticle.transform.Rotate(0, 180, 0);
         }
 
-        reticle.SetActive(selected && lastMode == InteractMode.Dwell);
+        reticle.SetActive(selected);
 
         dwellCircle.SetActive(selected && lastMode == InteractMode.Dwell && Time.time - timer < dwellTimer);
         if (selected && lastMode == InteractMode.Dwell)
