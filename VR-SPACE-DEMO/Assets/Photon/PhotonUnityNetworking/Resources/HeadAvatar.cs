@@ -5,7 +5,7 @@ public class HeadAvatarController : MonoBehaviourPun
 {
     public Material localMaterial;
     public Material remoteMaterial;
-
+    public Vector3 rotationOffset = new Vector3(-90, 180, 0);
     Transform cam;
 
     void Awake()
@@ -16,7 +16,7 @@ public class HeadAvatarController : MonoBehaviourPun
             r.material = photonView.IsMine ? localMaterial : remoteMaterial;
 
         // Optional: hide your own head so you don't see inside geometry
-        // if (photonView.IsMine && r) r.enabled = false;
+        if (photonView.IsMine && r) r.enabled = false;
 
         // Only the owner drives this
         if (!photonView.IsMine) enabled = false;
@@ -37,7 +37,7 @@ public class HeadAvatarController : MonoBehaviourPun
         }
 
         // Copy *rotation only*. Position stays at the spawn (set by the rig in NetBootstrap)
-        transform.rotation = cam.rotation;
+        transform.rotation = cam.rotation * Quaternion.Euler(rotationOffset);
         transform.position = cam.position;
     }
 }
