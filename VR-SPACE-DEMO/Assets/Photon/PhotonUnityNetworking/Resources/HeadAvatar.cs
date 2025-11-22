@@ -16,7 +16,17 @@ public class HeadAvatarController : MonoBehaviourPun
             r.material = photonView.IsMine ? localMaterial : remoteMaterial;
 
         // Optional: hide your own head so you don't see inside geometry
-        if (photonView.IsMine && r) r.enabled = false;
+        //if (photonView.IsMine && r) r.enabled = false;
+
+        if (photonView.IsMine)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Local");
+        }
+        else
+        {
+            if (r && remoteMaterial) 
+                r.material = remoteMaterial;
+        }
 
         // Only the owner drives this
         if (!photonView.IsMine) enabled = false;

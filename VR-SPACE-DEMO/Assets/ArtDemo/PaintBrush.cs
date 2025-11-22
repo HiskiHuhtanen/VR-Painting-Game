@@ -15,7 +15,7 @@ public class PaintBrush : MonoBehaviour
             if (paintable != null)
             {
                 Vector2 uv = hit.textureCoord;
-                paintable.Paint(uv, currentColor, brushSize);
+                paintable.PaintPhoton(uv, currentColor, brushSize);
             }
         }
     }
