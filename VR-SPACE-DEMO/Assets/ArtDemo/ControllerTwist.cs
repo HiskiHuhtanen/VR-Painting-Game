@@ -31,7 +31,7 @@ public class ControllerTwist : MonoBehaviour
     {
         if (Physics.Raycast(RaycastOrigin.position, RaycastOrigin.forward, out RaycastHit hit, maxInteractDistance, interactLayer))
         {
-            Debug.Log("Raycast hit: " + hit.transform.name);
+            //Debug.Log("Raycast hit: " + hit.transform.name);
 
             if (!selected || hit.transform.gameObject != selected.gameObject)
             {

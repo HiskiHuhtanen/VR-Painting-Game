@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using System.IO;
 public class Paintable : MonoBehaviour
 {
     public int textureSize;
@@ -11,8 +12,9 @@ public class Paintable : MonoBehaviour
     {
         pv = GetComponent<PhotonView>();
         renderer = GetComponent<Renderer>();
-         renderer.material = new Material(renderer.material); //pitäis korjata chrashit, aiemmin sii vika että muutettii jotain ilman lupia
+        renderer.material = new Material(renderer.material); //pitäis korjata chrashit, aiemmin sii vika että muutettii jotain ilman lupia
         texture = new Texture2D(textureSize, textureSize);
+        ClearLocalTexture();
         renderer.material.mainTexture = texture;
     }
 
@@ -46,5 +48,32 @@ public class Paintable : MonoBehaviour
             }
         }
         texture.Apply();
+    }
+
+    public void SavePNG(string filePath)
+    {
+        byte[] png = texture.EncodeToPNG();
+        File.WriteAllBytes(filePath, png);
+        Debug.Log("Saved Painting: " + filePath);
+    }
+
+    public void ClearLocalTexture()
+    {
+        Color clear = Color.white;
+        for (int x = 0; x < textureSize; x++)
+            for (int y = 0; y < textureSize; y++)
+                texture.SetPixel(x, y, clear);
+
+        texture.Apply();
+    }
+
+    //ei voi käyttää private juttuja
+    public Texture2D GetTextureCopy()
+    {
+        if (texture == null) return null;
+        Texture2D copy = new Texture2D(texture.width, texture.height, texture.format, false);
+        copy.SetPixels(texture.GetPixels());
+        copy.Apply();
+        return copy;
     }
 }
