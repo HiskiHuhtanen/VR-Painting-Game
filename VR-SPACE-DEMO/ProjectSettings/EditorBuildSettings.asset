@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/ArtDemo/SampleScene.unity
+    path: Assets/ArtDemo/Painting.unity
     guid: 39d621e64e20212458232c6eadbbab97
+  - enabled: 1
+    path: Assets/ArtDemo/Hallway.unity
+    guid: d80ceefb4f0a04c46a8aab60b3a75e78
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f2bcde2cde72381468228b2b21cc1778, type: 2}
