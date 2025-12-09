@@ -37,7 +37,8 @@ public class HallwayManager : MonoBehaviour
         totalFrames = paintingPaths.Length;
         int segmentsNeeded = Mathf.CeilToInt(totalFrames / 2f);
         
-        int initialSegments = Mathf.Max(3, Mathf.Min(segmentsNeeded + 1, 3));
+        // Spawn more initial segments to reduce stutter
+        int initialSegments = Mathf.Max(5, Mathf.Min(segmentsNeeded + 2, 8));
         Debug.Log($"Spawning {initialSegments} initial segments");
         
         for (int i = 0; i < initialSegments; i++)
@@ -63,21 +64,29 @@ public class HallwayManager : MonoBehaviour
         int nextIndex = lastSpawnedIndex + 1;
         int segmentsNeeded = Mathf.CeilToInt(totalFrames / 2f);
         
-        if (nextIndex < segmentsNeeded)
+        // Preload segments further ahead to reduce stutter
+        for (int i = 0; i < 2; i++) // Load 2 segments ahead
         {
-            SpawnSegment(nextIndex);
-            lastSpawnedIndex = nextIndex;
-        }
-        else if (nextIndex == segmentsNeeded)
-        {
-            SpawnEndSegment(nextIndex);
-            lastSpawnedIndex = nextIndex;
+            int indexToSpawn = nextIndex + i;
+            
+            if (indexToSpawn < segmentsNeeded)
+            {
+                SpawnSegment(indexToSpawn);
+                lastSpawnedIndex = indexToSpawn;
+            }
+            else if (indexToSpawn == segmentsNeeded && lastSpawnedIndex < segmentsNeeded)
+            {
+                SpawnEndSegment(indexToSpawn);
+                lastSpawnedIndex = indexToSpawn;
+                break; // Stop after spawning end segment
+            }
         }
 
+        // Cleanup old segments
         foreach (Transform child in transform)
         {
             int idx = Mathf.RoundToInt(child.position.z / segmentLength);
-            if (idx < currentIndex - 1)
+            if (idx < currentIndex - 2) // Keep one extra segment behind
                 Destroy(child.gameObject);
         }
     }

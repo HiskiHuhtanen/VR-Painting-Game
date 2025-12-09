@@ -25,11 +25,7 @@ public static class Appraisal
                 if (isPainted)
                 {
                     paintedCount++;
-
-                    // Energy score (difference from previous)
                     energyAccum += ColorDifference(prev, c);
-
-                    // Bucket index (for color variety)
                     int bucket = ColorBucket(c);
                     buckets[bucket]++;
                 }
@@ -41,7 +37,7 @@ public static class Appraisal
         // ---- Category Scores ----
 
         float paintFill = (float)paintedCount / total;
-        float colorScore = Mathf.Pow(paintFill, 1.5f) * 25000f;  // Increased from 1000f
+        float colorScore = Mathf.Pow(paintFill, 1.5f) * 25000f;
         int uniqueColorBuckets = CountNonZeroBuckets(buckets);
         float varietyScore = uniqueColorBuckets * uniqueColorBuckets * 2500f;  // Increased from 50f
 
@@ -50,7 +46,9 @@ public static class Appraisal
 
         float rarityMultiplier = RollRarityMultiplier();
 
-        float totalValue = (colorScore + varietyScore + energyScore) * rarityMultiplier;
+        float totalValue = (colorScore + varietyScore + energyScore) * rarityMultiplier * 10f;
+        
+        Debug.Log($"Appraisal Debug - Painted pixels: {paintedCount}/{total}, ColorScore: {colorScore}, VarietyScore: {varietyScore}, EnergyScore: {energyScore}, RarityMult: {rarityMultiplier}, Total: {totalValue}");
 
         return Mathf.Round(totalValue);
     }

@@ -35,7 +35,7 @@ public class ControllerTwist : MonoBehaviour
 
             if (!selected || hit.transform.gameObject != selected.gameObject)
             {
-                Debug.Log("Raycast in if!!!: " + hit.transform.name);
+                //Debug.Log("Raycast in if!!!: " + hit.transform.name);
 
                 selected = hit.transform.GetComponent<Interactive>();
                 selected.Highlight();
