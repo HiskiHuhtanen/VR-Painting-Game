@@ -8,7 +8,7 @@ public class SavePainting : Interactive
 
     void Start()
     {
-        paintable = FindObjectOfType<Paintable>();
+        paintable = FindFirstObjectByType<Paintable>();
     }
 
     public new void Interact()
@@ -27,9 +27,7 @@ public class SavePainting : Interactive
         string fullpath = folder + filename;
         
         Texture2D tex = paintable.GetTextureCopy();
-        Debug.Log($"Original texture: {tex.width}x{tex.height}, format: {tex.format}");
         
-        // Check if original texture has any non-white pixels
         int nonWhitePixels = 0;
         Color[] pixels = tex.GetPixels();
         for (int i = 0; i < pixels.Length; i++)
@@ -37,12 +35,10 @@ public class SavePainting : Interactive
             if (pixels[i] != Color.white)
                 nonWhitePixels++;
         }
-        Debug.Log($"Original texture has {nonWhitePixels} non-white pixels out of {pixels.Length}");
         
         Texture2D rotated = Rotate(tex);
         Debug.Log($"Rotated texture: {rotated.width}x{rotated.height}");
-        
-        // Check if rotated texture has any non-white pixels
+        //Melkein aina väärin päin, kääntäminen numero 9430548230
         int rotatedNonWhitePixels = 0;
         Color[] rotatedPixels = rotated.GetPixels();
         for (int i = 0; i < rotatedPixels.Length; i++)
@@ -50,13 +46,14 @@ public class SavePainting : Interactive
             if (rotatedPixels[i] != Color.white)
                 rotatedNonWhitePixels++;
         }
-        Debug.Log($"Rotated texture has {rotatedNonWhitePixels} non-white pixels out of {rotatedPixels.Length}");
 
         System.IO.File.WriteAllBytes(fullpath, rotated.EncodeToPNG());
         Debug.Log("Painting saved to: " + fullpath);
         float value = Appraisal.Appraise(rotated);
 
-        Debug.Log("Painting value: " + value);
+        //tulee vähän paljon tiedostoja mutta on se sen arvosta!
+        string metadataPath = fullpath.Replace(".png", "_metadata.txt");
+        System.IO.File.WriteAllText(metadataPath, value.ToString());
         if (appraisalDisplay != null)
             appraisalDisplay.ShowValue(value, () => paintable.ClearLocalTexture());
         else

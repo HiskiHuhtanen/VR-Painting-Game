@@ -35,14 +35,17 @@ public static class Appraisal
         }
 
         // ---- Category Scores ----
-
+        // Amount of colors
+        // Amount of paint
+        // Consistensy
+        // Randomness
         float paintFill = (float)paintedCount / total;
         float colorScore = Mathf.Pow(paintFill, 1.5f) * 25000f;
         int uniqueColorBuckets = CountNonZeroBuckets(buckets);
-        float varietyScore = uniqueColorBuckets * uniqueColorBuckets * 2500f;  // Increased from 50f
+        float varietyScore = uniqueColorBuckets * uniqueColorBuckets * 2500f;
 
         float avgEnergy = energyAccum / Mathf.Max(1, paintedCount);
-        float energyScore = avgEnergy * 75000f;  // Increased from 2000f
+        float energyScore = avgEnergy * 75000f;
 
         float rarityMultiplier = RollRarityMultiplier();
 
@@ -62,16 +65,12 @@ public static class Appraisal
 
     static int ColorBucket(Color c)
     {
-        // Reduce color to 16 buckets
         int r = Mathf.FloorToInt(c.r * 2);
         int g = Mathf.FloorToInt(c.g * 2);
         int b = Mathf.FloorToInt(c.b * 2);
-        
-        // Clamp values to ensure they're in range [0, 1]
         r = Mathf.Clamp(r, 0, 1);
         g = Mathf.Clamp(g, 0, 1);
         b = Mathf.Clamp(b, 0, 1);
-        
         return r + g * 2 + b * 4;
     }
 
@@ -86,10 +85,10 @@ public static class Appraisal
     static float RollRarityMultiplier()
     {
         float roll = Random.value;
-        if (roll > 0.995f) return 50f;    // Increased from 20f - Ultra rare masterpieces
-        if (roll > 0.97f) return 15f;     // Increased from 5f - Rare pieces
-        if (roll > 0.90f) return 6f;      // Increased from 2.5f - Uncommon art
-        if (roll > 0.70f) return 3f;      // Increased from 1.5f - Decent pieces
-        return 1.5f;                      // Increased from 1f - Base multiplier
+        if (roll > 0.995f) return 50f;    //Ultra rare masterpieces
+        if (roll > 0.97f) return 15f;     //Rare pieces
+        if (roll > 0.90f) return 6f;      //Uncommon art
+        if (roll > 0.70f) return 3f;      //Decent pieces
+        return 1.1f;                      //Base multiplier
     }
 }

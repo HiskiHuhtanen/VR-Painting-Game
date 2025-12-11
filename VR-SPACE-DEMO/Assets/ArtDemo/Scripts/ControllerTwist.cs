@@ -37,6 +37,11 @@ public class ControllerTwist : MonoBehaviour
             {
                 //Debug.Log("Raycast in if!!!: " + hit.transform.name);
 
+                if (selected != null)
+                {
+                    selected.Unhighlight();
+                }
+
                 selected = hit.transform.GetComponent<Interactive>();
                 selected.Highlight();
                 targetHit = selected.transform;

@@ -14,6 +14,8 @@ public class HallwayManager : MonoBehaviour
     private string[] paintingPaths;
     private int totalFrames = 0;
 
+    //spawnataan niin monta osaa kuin maalauksia
+    //yritetään vähentää lagia, spawnaamalla osittain
     void Start()
     {
         string folder = Application.persistentDataPath + "/Paintings/";
@@ -36,8 +38,6 @@ public class HallwayManager : MonoBehaviour
 
         totalFrames = paintingPaths.Length;
         int segmentsNeeded = Mathf.CeilToInt(totalFrames / 2f);
-        
-        // Spawn more initial segments to reduce stutter
         int initialSegments = Mathf.Max(5, Mathf.Min(segmentsNeeded + 2, 8));
         Debug.Log($"Spawning {initialSegments} initial segments");
         
@@ -63,9 +63,7 @@ public class HallwayManager : MonoBehaviour
     {
         int nextIndex = lastSpawnedIndex + 1;
         int segmentsNeeded = Mathf.CeilToInt(totalFrames / 2f);
-        
-        // Preload segments further ahead to reduce stutter
-        for (int i = 0; i < 2; i++) // Load 2 segments ahead
+        for (int i = 0; i < 2; i++)
         {
             int indexToSpawn = nextIndex + i;
             
@@ -78,15 +76,13 @@ public class HallwayManager : MonoBehaviour
             {
                 SpawnEndSegment(indexToSpawn);
                 lastSpawnedIndex = indexToSpawn;
-                break; // Stop after spawning end segment
+                break;
             }
         }
-
-        // Cleanup old segments
         foreach (Transform child in transform)
         {
             int idx = Mathf.RoundToInt(child.position.z / segmentLength);
-            if (idx < currentIndex - 2) // Keep one extra segment behind
+            if (idx < currentIndex - 2)
                 Destroy(child.gameObject);
         }
     }

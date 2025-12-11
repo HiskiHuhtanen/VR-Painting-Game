@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 public class HallwayTransition : Interactive
 {
     [Header("Scene Transition")]
-    public string hallwaySceneName = "HallwayScene";  // Name of the hallway scene
+    public string hallwaySceneName = "HallwayScene";
     public bool useSceneIndex = false;
-    public int hallwaySceneIndex = 1;  // Alternative: use scene index instead of name
+    public int hallwaySceneIndex = 1;
     
     [Header("Optional Feedback")]
     public AudioSource audioSource;
     public AudioClip transitionSound;
-    public float transitionDelay = 0.5f;  // Small delay for audio/visual feedback
+    public float transitionDelay = 0.5f;
 
     public new void Interact()
     {
@@ -20,14 +20,12 @@ public class HallwayTransition : Interactive
 
     void StartTransition()
     {
-        // Play transition sound if available
         if (audioSource && transitionSound)
         {
             audioSource.clip = transitionSound;
             audioSource.Play();
         }
 
-        // Start transition with optional delay
         if (transitionDelay > 0)
         {
             Invoke(nameof(LoadHallwayScene), transitionDelay);

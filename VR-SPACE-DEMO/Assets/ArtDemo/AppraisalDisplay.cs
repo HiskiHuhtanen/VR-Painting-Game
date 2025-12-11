@@ -20,8 +20,7 @@ public class AppraisalDisplay : MonoBehaviour
 
     IEnumerator AnimateValue(float target, System.Action onComplete = null)
     {
-        // Phase 1: Animated APPRAISING text
-        float appraisingDuration = 0f;
+        float appraisingDuration;
         if (audioSource && gearSound)
         {
             audioSource.clip = gearSound;
@@ -30,14 +29,13 @@ public class AppraisalDisplay : MonoBehaviour
         }
         else
         {
-            appraisingDuration = 2f; // Default duration if no gear sound
+            appraisingDuration = 2f;
         }
         
-        // Animate the APPRAISING text
         float appraisingTimer = 0f;
         while (appraisingTimer < appraisingDuration)
         {
-            float cycle = (appraisingTimer % 1.2f) / 1.2f; // 1.2 second cycle
+            float cycle = (appraisingTimer % 1.2f) / 1.2f;
             
             if (cycle < 0.33f)
                 textField.text = "APPRAISING.";
